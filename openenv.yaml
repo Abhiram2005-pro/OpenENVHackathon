@@ -1,0 +1,53 @@
+name: data-pipeline-debugger
+version: "1.0.0"
+description: >
+  An environment where AI agents debug and fix broken data pipelines.
+  Agents must identify and correct errors in CSV data transformations.
+
+author: "Your Name"
+tags: ["data-engineering", "debugging", "real-world", "openenv"]
+
+tasks:
+  - name: fix_csv_encoding
+    difficulty: easy
+    description: "Fix broken CSV with wrong delimiter and encoding issues"
+    max_steps: 10
+
+  - name: fix_schema_errors
+    difficulty: medium
+    description: "Fix data type mismatches, null handling, and column errors"
+    max_steps: 15
+
+  - name: optimize_pipeline
+    difficulty: hard
+    description: "Fix logic bugs and optimize a slow broken pipeline"
+    max_steps: 20
+
+observation_space:
+  type: structured
+  fields:
+    - name: data_preview
+      type: string
+      description: "First 5 rows of current dataframe as string"
+    - name: error_message
+      type: string
+      description: "Current error or empty string if no error"
+    - name: schema_info
+      type: string
+      description: "Column names, types, null counts"
+    - name: step_number
+      type: integer
+      description: "Current step number"
+    - name: task_name
+      type: string
+      description: "Current active task"
+
+action_space:
+  type: structured
+  fields:
+    - name: code
+      type: string
+      description: "Python pandas code to apply to the dataframe"
+
+reward_range: [-1.0, 1.0]
+max_steps: 20
