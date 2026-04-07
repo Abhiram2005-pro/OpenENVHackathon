@@ -1,13 +1,3 @@
----
-title: OpenEnv Data Pipeline Debugger
-emoji: 🛠️
-colorFrom: blue
-colorTo: green
-sdk: docker
-pinned: true
-app_port: 7860
----
-
 # 🛠️ OpenEnv — Data Pipeline Debugger
 
 > An AI agent environment where LLM agents debug and fix broken data pipelines.
@@ -91,7 +81,21 @@ code — Python pandas code string operating on variable `df`
 | `POST` | `/step` | Submit an action |
 | `GET` | `/state` | Get current environment state |
 | `GET` | `/grader` | Grade the completed episode |
-| `POST` | `/baseline` | Run the LLM baseline agent |
+| `POST` | `/baseline` | Run the inference agent |
+
+---
+
+## 🚀 Configuration for Hugging Face Spaces
+
+If deploying to HF Spaces, set these environment variables in **Space Settings → Repository secrets**:
+
+```
+API_BASE_URL = https://api-inference.huggingface.co/models
+MODEL_NAME = meta-llama/Llama-2-7b-chat-hf
+HF_TOKEN = [Your Hugging Face API token from https://huggingface.co/settings/tokens]
+```
+
+These are automatically used by `inference.py` when running `/baseline` or `python inference.py`.
 
 ---
 
