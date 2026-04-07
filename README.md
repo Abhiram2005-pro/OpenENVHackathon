@@ -1,3 +1,13 @@
+---
+title: OpenEnv Data Pipeline Debugger
+emoji: 🛠️
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: true
+app_port: 7860
+---
+
 # 🛠️ OpenEnv — Data Pipeline Debugger
 
 > An AI agent environment where LLM agents debug and fix broken data pipelines.
